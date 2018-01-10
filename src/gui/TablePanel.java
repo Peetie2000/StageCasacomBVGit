@@ -41,7 +41,7 @@ public class TablePanel extends JPanel {
 			//if (returnValue == JFileChooser.APPROVE_OPTION) {
 				//File selectedFile = fileChooser.getSelectedFile();
 				//String selectedFilePath = selectedFile.getPath();
-				File f = new File("C:/Users/Patrick/Desktop/voorbeeld2.csv");
+				File f = new File("Examples/voorbeeld2.csv");
 				is = new FileInputStream(f);
 				data.insertData(is);
 //			} else if (returnValue == JFileChooser.CANCEL_OPTION) {

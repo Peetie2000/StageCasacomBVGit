@@ -7,7 +7,7 @@ import dataPackage.*;
 public class MainPanel extends JPanel implements CheckButtonListener{
 
 	CSVTable csvTable;
-	TablePanel table;
+	private TablePanel table;
 	ButtonPanel buttons;
 	
 	public MainPanel(){
@@ -67,4 +67,6 @@ public class MainPanel extends JPanel implements CheckButtonListener{
 	public void clickCleaner() {
 		bindCleaner();
 	}
+
+
 }
