@@ -61,6 +61,7 @@ public class CSVTable {
 		System.out.println("Columns: " + model.getColumnCount() + "\n" + "Rows: " + model.getRowCount());
 
 		scan.close();
+		
 	}
 
 }

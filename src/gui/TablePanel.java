@@ -51,11 +51,13 @@ public class TablePanel extends JPanel {
 		} catch (IOException ioe) {
 			JOptionPane.showMessageDialog(this, ioe, "Error reading data", JOptionPane.ERROR_MESSAGE);
 		}
-
+		
+		
 	}
 
 	public JTable getjTableCsv() {
 		return jTableCsv;
 	}
+	
 
 }

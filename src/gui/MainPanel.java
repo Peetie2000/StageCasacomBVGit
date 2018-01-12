@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import dataPackage.*;
 
-public class MainPanel extends JPanel implements CheckButtonListener{
+public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener, IllegalListener{
 
 	CSVTable csvTable;
 	private TablePanel table;
@@ -17,6 +17,7 @@ public class MainPanel extends JPanel implements CheckButtonListener{
 
 		buttons = new ButtonPanel(csvTable);
 		buttons.setCheckButtonListener(this);
+		buttons.setBeginCheck(this);
 		buttons.setLocation(0, 0);
 		
 		table = new TablePanel(csvTable);
@@ -24,9 +25,17 @@ public class MainPanel extends JPanel implements CheckButtonListener{
 		
 		add(buttons);
 		add(table);
+		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
+			String columnName = table.getjTableCsv().getColumnName(i);
+			table.getjTableCsv().getColumn(columnName).setCellRenderer(new BeginRenderer());
+		}
 	}
 	
 	public void beginPaint(){
+		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
+			String columnName = table.getjTableCsv().getColumnName(i);
+			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CustomCleanerRenderer());
+		}
 		table.repaint();
 	}
 	public void bindRenderer(){
@@ -37,7 +46,7 @@ public class MainPanel extends JPanel implements CheckButtonListener{
 		table.repaint();
 	}
 	
-	public void bindIntegerRenderer(){
+	public void IllegalRenderer(){
 		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
 			String columnName = table.getjTableCsv().getColumnName(i);
 			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CustomRendererIllegal());
@@ -52,6 +61,11 @@ public class MainPanel extends JPanel implements CheckButtonListener{
 		}
 		table.repaint();
 	}
+
+	@Override
+	public void beginPainter() {
+		beginPaint();
+	}
 	
 	@Override
 	public void clickCheck() {
@@ -59,14 +73,15 @@ public class MainPanel extends JPanel implements CheckButtonListener{
 	}
 	
 	@Override
-	public void clickIllegal() {
-		bindIntegerRenderer();
+	public void IllegalCheck() {
+		IllegalRenderer();
 	}
 	
-	@Override
-	public void clickCleaner() {
-		bindCleaner();
-	}
+	
+	//@Override
+	//public void clickCleaner() {
+	//	bindCleaner();
+	//}
 
-
+	
 }
