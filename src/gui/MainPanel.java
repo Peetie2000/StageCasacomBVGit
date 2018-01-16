@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import dataPackage.*;
 
-public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener, IllegalListener{
+public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener, NewRenderer{
 
 	CSVTable csvTable;
 	private TablePanel table;
@@ -46,7 +46,7 @@ public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener
 		table.repaint();
 	}
 	
-	public void IllegalRenderer(){
+	public void bindNieuw(){
 		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
 			String columnName = table.getjTableCsv().getColumnName(i);
 			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CustomRendererIllegal());
@@ -61,6 +61,11 @@ public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener
 		}
 		table.repaint();
 	}
+	
+	@Override
+	public void nieuwRender() {
+		bindNieuw();
+	}
 
 	@Override
 	public void beginPainter() {
@@ -72,10 +77,6 @@ public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener
 		bindRenderer();		
 	}
 	
-	@Override
-	public void IllegalCheck() {
-		IllegalRenderer();
-	}
 	
 	
 	//@Override

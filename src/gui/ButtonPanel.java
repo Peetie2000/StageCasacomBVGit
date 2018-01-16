@@ -8,9 +8,9 @@ import dataPackage.*;
 
 public class ButtonPanel extends JPanel {
 
-	private CheckButtonListener checkButtonListener;
-	private BeginCheck beginCheck;
-	private IllegalListener illegalListener;
+	public CheckButtonListener checkButtonListener;
+	public BeginCheck beginCheck;
+	public NewRenderer newRenderer;
 
 	public ButtonPanel(CSVTable csvTable) {
 		setSize(800, 20);
@@ -25,14 +25,14 @@ public class ButtonPanel extends JPanel {
 		});
 		add(check);
 
-		JButton illegal = new JButton();
-		illegal.setText("illegal");
-		illegal.addActionListener(new ActionListener() {
+		JButton nieuw = new JButton();
+		nieuw.setText("Nieuw");
+		nieuw.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				illegalListener.IllegalCheck();
+				//newRenderer.nieuwRender();
 			}
 		});
-		add(illegal);
+		add(nieuw);
 
 		
 		JButton duplicates = new JButton();
@@ -56,8 +56,8 @@ public class ButtonPanel extends JPanel {
 		
 	}
 
-	public void setIllegalListener(IllegalListener bi) {
-		this.illegalListener = bi;
+	public void setNieuwListener(NewRenderer nr) {
+		this.newRenderer = nr;
 	}
 
 	public void setCheckButtonListener(CheckButtonListener cbl) {
