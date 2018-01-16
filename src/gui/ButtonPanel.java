@@ -14,7 +14,7 @@ public class ButtonPanel extends JPanel {
 
 	public ButtonPanel(CSVTable csvTable) {
 		setSize(800, 20);
-		setLayout(new GridLayout(1, 4, 0, 0));
+		setLayout(new GridLayout(1, 5, 0, 0));
 
 		JButton check = new JButton();
 		check.setText("Clean");
@@ -52,6 +52,15 @@ public class ButtonPanel extends JPanel {
 			}
 		});
 		add(emptyFields);
+		
+		JButton save = new JButton();
+		save.setText("save");
+		save.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		add(save);
 		
 		
 	}
