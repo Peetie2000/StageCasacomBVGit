@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
-public class CustomCleanerRenderer extends JLabel implements TableCellRenderer{
+public class ExtraRenderer extends JLabel implements TableCellRenderer{
 
 	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
@@ -17,12 +17,13 @@ public class CustomCleanerRenderer extends JLabel implements TableCellRenderer{
 		try{
 			//double intValue = Double.parseDouble(value.toString());
 			if(cellValue.length() == 0){
-				setBackground(Color.WHITE);
+				setBackground(Color.BLUE);
 				setOpaque(true);
 			}
 			else {
 				setOpaque(false);
 			} 
+			//if(cellValue.length() ){}
 			
 		} catch (Exception e){
 			if(e instanceof NumberFormatException){

@@ -8,9 +8,7 @@ import dataPackage.*;
 
 public class ButtonPanel extends JPanel {
 
-	public CheckButtonListener checkButtonListener;
-	public BeginCheck beginCheck;
-	public NewRenderer newRenderer;
+	public ButtonListener buttonListener;
 
 	public ButtonPanel(CSVTable csvTable) {
 		setSize(800, 20);
@@ -20,26 +18,16 @@ public class ButtonPanel extends JPanel {
 		check.setText("Clean");
 		check.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				beginCheck.beginPainter();
+				buttonListener.clickClean();
 			}
 		});
 		add(check);
 
-		JButton nieuw = new JButton();
-		nieuw.setText("Nieuw");
-		nieuw.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//newRenderer.nieuwRender();
-			}
-		});
-		add(nieuw);
-
-		
 		JButton duplicates = new JButton();
 		duplicates.setText("Duplicaten");
 		duplicates.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				buttonListener.clickExtra();
 			}
 		});
 		add(duplicates);
@@ -48,33 +36,34 @@ public class ButtonPanel extends JPanel {
 		emptyFields.setText("Lege velden");
 		emptyFields.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				checkButtonListener.clickCheck();
+				buttonListener.clickCheck();
 			}
 		});
 		add(emptyFields);
-		
+
 		JButton save = new JButton();
 		save.setText("save");
 		save.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
 		add(save);
-		
-		
+
 	}
 
-	public void setNieuwListener(NewRenderer nr) {
-		this.newRenderer = nr;
+	public void setClickCheck(ButtonListener cc) {
+		this.buttonListener = cc;
 	}
 
-	public void setCheckButtonListener(CheckButtonListener cbl) {
-		this.checkButtonListener = cbl;
+	public void setClickClean(ButtonListener cc2) {
+		this.buttonListener = cc2;
+
 	}
 
-	public void setBeginCheck(BeginCheck bc) {
-		this.beginCheck = bc;
+	public void setClickExtra(ButtonListener ce) {
+		this.buttonListener = ce;
+
 	}
 
 }

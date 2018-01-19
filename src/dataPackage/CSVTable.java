@@ -8,7 +8,7 @@ import java.util.Scanner;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import gui.CustomRenderer;
+import gui.CheckRenderer;
 
 public class CSVTable {
 	DefaultTableModel model;

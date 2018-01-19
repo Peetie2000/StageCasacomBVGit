@@ -4,7 +4,7 @@ import javax.swing.JPanel;
 
 import dataPackage.*;
 
-public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener, NewRenderer{
+public class MainPanel extends JPanel implements ButtonListener{
 
 	CSVTable csvTable;
 	private TablePanel table;
@@ -16,8 +16,9 @@ public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener
 		csvTable = new dataPackage.CSVTable();
 
 		buttons = new ButtonPanel(csvTable);
-		buttons.setCheckButtonListener(this);
-		buttons.setBeginCheck(this);
+		buttons.setClickCheck(this);
+		buttons.setClickClean(this);
+		buttons.setClickExtra(this);
 		buttons.setLocation(0, 0);
 		
 		table = new TablePanel(csvTable);
@@ -31,58 +32,44 @@ public class MainPanel extends JPanel implements BeginCheck, CheckButtonListener
 		}
 	}
 	
-	public void beginPaint(){
+	public void bindCheck(){
 		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
 			String columnName = table.getjTableCsv().getColumnName(i);
-			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CustomCleanerRenderer());
-		}
-		table.repaint();
-	}
-	public void bindRenderer(){
-		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
-			String columnName = table.getjTableCsv().getColumnName(i);
-			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CustomRenderer());
+			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CheckRenderer());
 		}
 		table.repaint();
 	}
 	
-	public void bindNieuw(){
+	public void bindClean(){
 		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
 			String columnName = table.getjTableCsv().getColumnName(i);
-			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CustomRendererIllegal());
+			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CleanRenderer());
 		}
 		table.repaint();
 	}
 	
-	public void bindCleaner(){
+	public void bindExtra(){
 		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
 			String columnName = table.getjTableCsv().getColumnName(i);
-			table.getjTableCsv().getColumn(columnName).setCellRenderer(new CustomCleanerRenderer());
+			table.getjTableCsv().getColumn(columnName).setCellRenderer(new ExtraRenderer());
 		}
 		table.repaint();
-	}
-	
-	@Override
-	public void nieuwRender() {
-		bindNieuw();
-	}
-
-	@Override
-	public void beginPainter() {
-		beginPaint();
 	}
 	
 	@Override
 	public void clickCheck() {
-		bindRenderer();		
+		bindCheck();
 	}
 	
+	@Override
+	public void clickClean() {
+		bindClean();
+	}
 	
-	
-	//@Override
-	//public void clickCleaner() {
-	//	bindCleaner();
-	//}
+	@Override
+	public void clickExtra() {
+		bindExtra();
+	}
 
 	
 }
