@@ -12,7 +12,7 @@ public class ButtonPanel extends JPanel {
 
 	public ButtonPanel(CSVTable csvTable) {
 		setSize(800, 20);
-		setLayout(new GridLayout(1, 5, 0, 0));
+		setLayout(new GridLayout(1, 6, 0, 0));
 
 		JButton check = new JButton();
 		check.setText("Clean");
@@ -50,6 +50,19 @@ public class ButtonPanel extends JPanel {
 		});
 		add(save);
 
+		JTextField searchField = new JTextField();
+		searchField.setToolTipText("Zoeken");
+		
+		add(searchField);
+		
+		JButton search = new JButton();
+		search.setText("Zoeken");
+		search.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		add(search);
 	}
 
 	public void setClickCheck(ButtonListener cc) {
