@@ -19,7 +19,7 @@ public class MainPanel extends JPanel implements ButtonListener {
 		buttons = new ButtonPanel(csvTable);
 		buttons.setClickCheck(this);
 		buttons.setClickClean(this);
-		buttons.setClickExtra(this);
+		buttons.setClickZoek(this);
 		buttons.setLocation(0, 0);
 
 		table = new TablePanel(csvTable);
@@ -55,7 +55,7 @@ public class MainPanel extends JPanel implements ButtonListener {
 	public void bindExtra() {
 		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
 			String columnName = table.getjTableCsv().getColumnName(i);
-			table.getjTableCsv().getColumn(columnName).setCellRenderer(new ExtraRenderer());
+			table.getjTableCsv().getColumn(columnName).setCellRenderer(new ZoekRenderer());
 		}
 		table.repaint();
 	}
@@ -71,7 +71,7 @@ public class MainPanel extends JPanel implements ButtonListener {
 	}
 
 	@Override
-	public void clickExtra() {
+	public void clickZoek() {
 		bindExtra();
 	}
 

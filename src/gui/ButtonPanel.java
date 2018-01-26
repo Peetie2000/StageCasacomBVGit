@@ -27,7 +27,7 @@ public class ButtonPanel extends JPanel {
 		duplicates.setText("Duplicaten");
 		duplicates.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				buttonListener.clickExtra();
+				
 			}
 		});
 		add(duplicates);
@@ -53,13 +53,16 @@ public class ButtonPanel extends JPanel {
 		JTextField searchField = new JTextField();
 		searchField.setToolTipText("Zoeken");
 		
+		
 		add(searchField);
+		
+		
 		
 		JButton search = new JButton();
 		search.setText("Zoeken");
 		search.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				buttonListener.clickZoek();
 			}
 		});
 		add(search);
@@ -74,8 +77,13 @@ public class ButtonPanel extends JPanel {
 
 	}
 
-	public void setClickExtra(ButtonListener ce) {
-		this.buttonListener = ce;
+	public void setClickZoek(ButtonListener cz) {
+		this.buttonListener = cz;
+
+	}
+	
+	public void setClickZoekVeld (ButtonListener czv) {
+		this.buttonListener = czv;
 
 	}
 
