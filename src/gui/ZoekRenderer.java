@@ -15,10 +15,11 @@ public class ZoekRenderer extends JLabel implements TableCellRenderer{
 		setText(value.toString());
 		String cellValue = value.toString();
 		try{
+			ButtonPanel BPanel = new ButtonPanel(null);
 			//double intValue = Double.parseDouble(value.toString());
-			String a = "kaas";
+			String a = BPanel.getSearchFieldText();
 			if(cellValue.equals(a)){
-				setBackground(Color.RED);
+				setBackground(Color.GREEN);
 				setOpaque(true);
 			}
 			else {

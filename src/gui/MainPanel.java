@@ -52,7 +52,7 @@ public class MainPanel extends JPanel implements ButtonListener {
 		table.repaint();
 	}
 
-	public void bindExtra() {
+	public void bindZoek() {
 		for (int i = 0; i < table.getjTableCsv().getColumnCount(); i++) {
 			String columnName = table.getjTableCsv().getColumnName(i);
 			table.getjTableCsv().getColumn(columnName).setCellRenderer(new ZoekRenderer());
@@ -72,7 +72,7 @@ public class MainPanel extends JPanel implements ButtonListener {
 
 	@Override
 	public void clickZoek() {
-		bindExtra();
+		bindZoek();
 	}
 
 }

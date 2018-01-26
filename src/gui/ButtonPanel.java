@@ -9,7 +9,12 @@ import dataPackage.*;
 public class ButtonPanel extends JPanel {
 
 	public ButtonListener buttonListener;
-
+	public String searchFieldText;
+	
+	public String getSearchFieldText(){ 
+		return searchFieldText;
+	}
+	
 	public ButtonPanel(CSVTable csvTable) {
 		setSize(800, 20);
 		setLayout(new GridLayout(1, 6, 0, 0));
@@ -52,11 +57,9 @@ public class ButtonPanel extends JPanel {
 
 		JTextField searchField = new JTextField();
 		searchField.setToolTipText("Zoeken");
-		
-		
+		searchField.setText("fiets");
 		add(searchField);
-		
-		
+		searchFieldText = searchField.getText();
 		
 		JButton search = new JButton();
 		search.setText("Zoeken");
@@ -82,9 +85,6 @@ public class ButtonPanel extends JPanel {
 
 	}
 	
-	public void setClickZoekVeld (ButtonListener czv) {
-		this.buttonListener = czv;
-
-	}
+	
 
 }

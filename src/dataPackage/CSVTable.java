@@ -34,7 +34,7 @@ public class CSVTable {
 		Scanner scan = new Scanner(is);
 		String[] array;
 		empty = new ArrayList<Integer>();
-
+		//wow
 		while (scan.hasNextLine()) {
 			String line = scan.nextLine();
 
